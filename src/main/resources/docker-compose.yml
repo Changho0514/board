@@ -1,0 +1,14 @@
+version: "3"
+services:
+  db: # 서비스 명
+    image: mysql:8 # 사용할 이미지
+    container_name: mysql-container # 컨테이너명 설정
+    ports:
+      - "3308:3308"
+    environment:
+      MYSQL_ROOT_PASSWORD: "chlckd12" # root 계정 패스워드 설정
+    command: # 명령어
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes: # 다렉토리 마운트 설정
+      - ./mysql/:/var/lib/mysql
